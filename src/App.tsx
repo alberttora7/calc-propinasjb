@@ -1,14 +1,35 @@
-
+import MenuItem from "./components/MenuItem"
+import { menuItems} from "./data/db"
+import useOder from "./hooks/useOrder"
 
 function App() {
-  
+//hooks
+const { addItem} = useOder()
 
   return (
     <>
-      <div>
-       <h1>hola jose</h1>
-      </div>
+      <header className="bg-teal-400 py-5">
+       <h1 className="text-center text-4xl font-black">Calculadora de porpina y consumo</h1>
+      </header>
      
+      <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
+        <div className="p-5">
+          <h2 className="text-4xl font-black"> Menu</h2>
+          <div className="space-y-3 mt-10">
+            {menuItems.map(item =>(
+                  <MenuItem
+                  key={item.id}
+                  item={item}
+                  addItem={addItem}
+                  />
+                ))}
+          </div>
+          
+        </div>
+        <div>
+          <h2> Consumo</h2>
+        </div>
+      </main>
     </>
   )
 }
