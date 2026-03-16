@@ -1,10 +1,11 @@
 import MenuItem from "./components/MenuItem"
+import OrderContents from "./components/OrderContents"
 import { menuItems} from "./data/db"
 import useOder from "./hooks/useOrder"
 
 function App() {
 //hooks
-const { addItem} = useOder()
+const { order, addItem} = useOder()
 
   return (
     <>
@@ -18,16 +19,18 @@ const { addItem} = useOder()
           <div className="space-y-3 mt-10">
             {menuItems.map(item =>(
                   <MenuItem
-                  key={item.id}
-                  item={item}
-                  addItem={addItem}
-                  />
+                      key={item.id}
+                      item={item}
+                      addItem={addItem}
+                    />
                 ))}
           </div>
           
         </div>
-        <div>
-          <h2> Consumo</h2>
+        <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+         <OrderContents
+          order = {order}
+         />
         </div>
       </main>
     </>
