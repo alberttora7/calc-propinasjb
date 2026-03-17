@@ -10,7 +10,8 @@ const { order, addItem} = useOder()
   return (
     <>
       <header className="bg-teal-400 py-5">
-       <h1 className="text-center text-4xl font-black">Calculadora de porpina y consumo</h1>
+       <h1 className="text-center text-4xl font-black">Calculadora de propina y consumo</h1>
+       <p className="text-2xl font-serif text-center">Hazlo facil</p>
       </header>
      
       <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
