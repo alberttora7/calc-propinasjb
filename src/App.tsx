@@ -1,8 +1,10 @@
 import MenuItem from "./components/MenuItem"
 import OrderContents from "./components/OrderContents"
+import OrderTotals from "./components/OrderTotals"
+import TipForm from "./components/TipForm"
 import { menuItems} from "./data/db"
 import useOder from "./hooks/useOrder"
-import OrderTotals from "./components/Ordertotals"
+
 
 
 
@@ -37,10 +39,12 @@ const { order, addItem, removeItem} = useOder()
           removeItem={removeItem}
          />
 
-
+        <TipForm
+        
+        />
 
         <OrderTotals
-
+          order={order}
         />
         </div>
       </main>
