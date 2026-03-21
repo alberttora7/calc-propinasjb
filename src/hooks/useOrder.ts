@@ -6,6 +6,7 @@ export default function useOder() {
     const [order, setOrde] = useState<OrderItem[]>([])
     
     //furnciones
+    //--para agregar item
     const addItem = (item : MenuItem) =>{
         const itemExist = order.find(orderItem => orderItem.id === item.id)
        if(itemExist){
@@ -19,11 +20,15 @@ export default function useOder() {
        }
         
     }
-    
+    //--para eliminar item
+    const removeItem = (id: MenuItem['id']) => {
+        setOrde(order.filter(item =>item.id !== id))
+    }
 
     return{
         order,
-        addItem
+        addItem,
+        removeItem
     }
   
 }
