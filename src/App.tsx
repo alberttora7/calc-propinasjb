@@ -3,20 +3,20 @@ import OrderContents from "./components/OrderContents"
 import OrderTotals from "./components/OrderTotals"
 import TipForm from "./components/TipForm"
 import { menuItems} from "./data/db"
-import useOder from "./hooks/useOrder"
+import useOrder from "./hooks/useOrder"
 
 
 
 
 function App() {
 //hooks
-const { order, addItem, removeItem} = useOder()
+const { order, addItem, removeItem, tip, setTip} = useOrder()
 
   return (
     <>
-      <header className="bg-teal-400 py-5">
-       <h1 className="text-center text-4xl font-black">Calculadora de propina y consumo</h1>
-       <p className="text-2xl font-serif text-center">Hazlo facil</p>
+      <header className="bg-teal-800 py-5">
+       <h1 className="text-center text-4xl text-amber-50 font-black">Calculadora de propina y consumo</h1>
+       <p className="text-2xl font-serif  pt-1.5 text-center font-bold">Hazlo facil</p>
       </header>
      
       <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
@@ -40,11 +40,12 @@ const { order, addItem, removeItem} = useOder()
          />
 
         <TipForm
-        
+        setTip={setTip}
         />
 
         <OrderTotals
           order={order}
+          tip={tip}
         />
         </div>
       </main>

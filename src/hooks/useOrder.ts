@@ -1,10 +1,10 @@
 import { useState } from "react"
 import type { MenuItem, OrderItem } from "../types"  //tipado
 
-export default function useOder() {
+export default function useOrder() {
     //states
     const [order, setOrde] = useState<OrderItem[]>([])
-    
+    const [tip, setTip] = useState(0)
     //furnciones
     //--para agregar item
     const addItem = (item : MenuItem) =>{
@@ -27,6 +27,8 @@ export default function useOder() {
 
     return{
         order,
+        tip,
+        setTip,
         addItem,
         removeItem
     }
